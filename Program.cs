@@ -1,56 +1,90 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
-class Program
+﻿using System;
+using System.Threading.Tasks;
+
+namespace FinalProj
 {
-    static void Main(string[] args)
+    class FinalProj()
     {
-        bool x = true;
-        while (x == true)
+        public class User()
         {
-            Console.WriteLine("Enter an Option: ");
-            string option = Console.ReadLine();
-
-            if (option == "add")
+            private string password;
+            private string userName;
+            private SortedDictionary<string, string> users;
+            public string Password
             {
-                int a = Convert.ToInt32(Console.ReadLine());
-                int b = Convert.ToInt32(Console.ReadLine()); 
-                int sum = a + b;
-                Console.WriteLine("Answer = " + sum);
-                
+                get { return password; }
+                set
+                {
+                    if (value == null)
+                    {
+                        Console.WriteLine("Please Try Again\n");
+                    }
+                    else
+                    {
+                        password = value;
+                    }
+                }
             }
-
-            else if (option == "sub")
+            public string UserName
             {
-                int a = Convert.ToInt32(Console.ReadLine());
-                int b = Convert.ToInt32(Console.ReadLine());
-                int sub = a - b;
-                Console.WriteLine("Answer = " + sub);
-                
+                get { return userName; }
+                set
+                {
+                    if (value == null)
+                    {
+                        Console.WriteLine("Please Try Again\n");
+                    }
+                    else
+                    {
+                        userName = value;
+                    }
+                }
             }
-
-            else if (option == "div")
+            public SortedDictionary<string, string> Users
             {
-                int a = Convert.ToInt32(Console.ReadLine());
-                int b = Convert.ToInt32(Console.ReadLine());
-                double div = a / b;
-                Console.WriteLine("Answer = " + div);
-                
+                get { return users; }
+                set
+                {
+                    users.Add(userName, password);
+                }
             }
-
-            else if (option == "mult")
+        }
+        internal class MainProgram
+        {
+            static void Main(string[] args)
             {
-                int a = Convert.ToInt32(Console.ReadLine());
-                int b = Convert.ToInt32(Console.ReadLine());
-                int mult = a * b;
-                Console.WriteLine("Answer = " + mult);
-                
-            }
+                User user = new User();
+                while (true)
+                {
+                    Console.WriteLine("Enter Your option: \n1. Login\n2. View users\n3. Exit Program");
+                    int? userIn = Convert.ToInt32(Console.ReadLine());
+                    if (userIn == 1)
+                    {
+                        Console.WriteLine("Enter Your username: ");
+                        string? username = Console.ReadLine();
+                        Console.WriteLine("Enter Your password: ");
+                        string? pass = Console.ReadLine();
+                        user.Password = pass;
+                        user.UserName = username;
+                        user.Users.Add(pass, username);
+                    }
 
-            else
-            {
-                Console.WriteLine("Exiting Program");
-                break;
+                    else if (userIn == 2)
+                    {
+                        foreach (KeyValuePair<string, string> kv in user.Users)
+                        {
+                            Console.WriteLine(kv.Key + " " + kv.Value);
+                        }
+                    }
+
+                    else if (userIn == 3)
+                    {
+                        Console.WriteLine("Exiting Program");
+                        break;
+                    }
+                }
             }
         }
     }
 }
+
