@@ -1,63 +1,114 @@
-﻿using System;
+﻿//using System;
 
-namespace Class1
-{
-	internal class Class1
-	{
-		static void Main(string[] args)
-		{
-			int balance = 1000;
-			bool x = true;
-			while (x == true) 
-			{
-				Console.WriteLine("Welcome to the ATM \n");
-                Console.WriteLine("1. Check Balance \n");
-                Console.WriteLine("2. Withdraw \n");
-                Console.WriteLine("3. Deposit \n");
-                Console.WriteLine("4. Quit \n");
-				Console.WriteLine("Enter option: ");
-				int option = Convert.ToInt32(Console.ReadLine());
+//namespace C_class
+//{
+//    public class SmartDevice
+//    {
+//        public interface ISmartDevice
+//        {
+//            void On();
+//            void Off();
+//            void GetStatus();
+//        }
+//        public class SmartThermostat : ISmartDevice
+//        {
+//            string? status = "OFF";
+//            public void On()
+//            {
+//                Console.WriteLine("Thermostat is ON: Temp is set to 71°F");
+//                status = "ON";
+//            }
+//            public void Off()
+//            {
+//                Console.WriteLine("Thermostat is OFF");
+//                status = "OFF";
+//            }
+//            public void GetStatus()
+//            {
+//                Console.WriteLine("Thermostat is currently {0}", status);
+//            }
+//        }
+//        public class SmartLight : ISmartDevice
+//        {
+//            string? status = "OFF";
+//            public void On()
+//            {
+//                Console.WriteLine("Light is ON");
+//                status = "ON";
+//            }
+//            public void Off()
+//            {
+//                Console.WriteLine("Light is OFF");
+//                status = "OFF";
+//            }
+//            public void GetStatus()
+//            {
+//                Console.WriteLine("Light is currently {0}", status);
+//            }
+//        }
+//        static void Main(string[] args)
+//        {
+//            ISmartDevice s;
+//            while (true)
+//            {
+//                string? device = Console.ReadLine();
+//                if (device == "t")
+//                {
+//                    s = new SmartThermostat();
+//                    while (true)
+//                    {
+//                        string? status = Console.ReadLine();
+//                        if (status == "on")
+//                        {
+//                            s.On();
+//                        }
+//                        else if (status == "off")
+//                        {
+//                            s.Off();
+//                        }
+//                        else if (status == "status")
+//                        {
+//                            s.GetStatus();
+//                        }
+//                        else
+//                        {
+//                            Console.WriteLine("Returning to menu");
+//                            break;
+//                        }
+//                    }
+//                }
 
-				if (option == 1)
-				{
-					Console.WriteLine("Current Balance: {0} \n", balance);
-				}
-				else if (option == 2)
-				{
-					Console.WriteLine("Enter ammount you want to withdraw: ");
-					int withdraw = Convert.ToInt32(Console.ReadLine());
-					if ((withdraw > 0) && (withdraw < balance))
-					{
-						balance -= withdraw;
-					}
-					else
-					{
-						Console.WriteLine("Insufficiant funds \n");
-					}
-				}
-				else if (option == 3)
-				{
-					Console.WriteLine("Enter ammount to deposit: ");
-					int deposit = Convert.ToInt32(Console.ReadLine());
-					if (deposit > 0)
-					{
-						balance += deposit;
-					}
-					else
-					{
-                        Console.WriteLine("Cannot Deposit {0} amount \n", deposit);
-                    }
-				}
-				else if (option == 4)
-				{
-					Console.WriteLine("Exiting Program");
-					x = false;
-				}
-				else
-				{
-                    Console.WriteLine("Please Enter Valid Input \n");
-                }
-            }
-		}
-	}
-}
+//                else if (device == "l")
+//                {
+//                    s = new SmartLight();
+//                    while (true)
+//                    {
+//                        string? status = Console.ReadLine();
+//                        if (status == "on")
+//                        {
+//                            s.On();
+//                        }
+//                        else if (status == "off")
+//                        {
+//                            s.Off();
+//                        }
+//                        else if (status == "status")
+//                        {
+//                            s.GetStatus();
+//                        }
+//                        else
+//                        {
+//                            Console.WriteLine("Returning to menu");
+//                            break;
+//                        }
+//                    }
+//                }
+//                else
+//                {
+//                    Console.WriteLine("Exiting");
+//                    break;
+//                }
+//            }
+//        }
+//    }
+//}
